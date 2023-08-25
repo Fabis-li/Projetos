@@ -1,0 +1,10 @@
+<div class="card shadow cardTraining">
+  <img src="{{ item.url }}" class="card-img-top imgCard" alt="..." >
+  <div class="card-body ">
+    <h6 class="card-title">{{ item.title }}</h6>
+    <p class="card-text descricaoCurso overflow-hidden">{{ item.description }}</p>
+  </div>
+  <div class="text-center cardBottom">
+    <p class="cargaHoraria ">Carga Horária: {{ formatarDuracao(item.duration) }} horas</p>   
+  </div>
+</div>

@@ -1,0 +1,30 @@
+@import "../user-auth.component.scss";
+
+h1 {
+  color: $azul-escuro;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.button-send-modal {
+  background-color: $azul-escuro;
+}
+
+.button-cancel-modal {
+  width: 120px;
+
+  background-color: $vermelho;
+
+  border-radius: 5px;
+}
+
+.button-send {
+  font-size: 20px;
+  border: none;
+  background-color: $azul-escuro;
+
+  &[disabled] {
+    background-color: $azul-escuro;
+  }
+}

@@ -1,0 +1,83 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ item.title }}</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <h6>Descrição</h6>
+      <p>{{ item.description }}</p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="c('Save click')">
+      Fechar
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #edit let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Editar atividade: {{ item.title }}
+    </h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    ></button>
+  </div>
+  <div [formGroup]="formEdit">
+    <div class="modal-body">
+      <div class="mb-3">
+        <label class="form-label mt-1">Descrição</label>
+        <p>{{ item.description }}</p>
+        <textarea
+          formControlName="description"
+          type="text"
+          class="form-control"
+          id="description"
+          placeholder="Digite a descrição editada de sua atividade"
+          required=""
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="c('Save click')">
+        Cancelar
+      </button>
+
+      <button type="button" class="btn btn-success" (click)="editActivitie()">
+        Editar
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<li class="list-group-item rounded mb-1 d-flex">
+  <p class="p-0 m-0 w-100" (click)="open(content)">
+    {{ item.title }}
+  </p>
+  <button
+    class="btn btn-warning float-end px-2 me-2 py-0 m-0"
+    style="width: 1.625 rem"
+    (click)="open(edit)"
+  >
+    <p class="p-0 m-0">&#9881;</p>
+  </button>
+  <button
+    class="btn btn-danger float-end px-2 py-0 m-0"
+    style="width: 1.625 rem"
+    (click)="deleteAtivitie(item.title)"
+  >
+    <p class="p-0 m-0">X</p>
+  </button>
+</li>

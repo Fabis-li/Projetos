@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <nav aria-label="breadcrumb">
+        <p class="text-end"><a routerLink="/home">&#171; voltar</a></p>
+        <ol class="breadcrumb w-100">
+          <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Meus Cursos
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <form (change)="filterByStatus()">
+        <input
+          [(ngModel)]="status"
+          type="radio"
+          name="status"
+          class="btn-check"
+          id="todos"
+          autocomplete="off"
+          value="todos"
+          checked
+        />
+        <label class="btn btn-outline-primary me-2" for="todos">Todos</label>
+        <input [(ngModel)]="status" type="radio" name="status" class="btn-check" id="andamento" autocomplete="off" value="Andamento" />
+        <label class="btn btn-outline-primary me-2" for="andamento">Andamento</label>
+        <input [(ngModel)]="status" type="radio" name="status" class="btn-check" id="finalizado" autocomplete="off" value="Finalizado" />
+        <label class="btn btn-outline-primary me-2" for="finalizado">Finalizado</label>
+        <input [(ngModel)]="status" type="radio" name="status" class="btn-check" id="recentes" autocomplete="off" value="Recentes" />
+        <label class="btn btn-outline-primary me-2" for="recentes">Recentes</label>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="d-flex flex-wrap justify-content-center">
+        <pro-item-my-training [item]="training" class="col-md-2 m-2 mt-4" *ngFor="let training of filters | slice:(page-1) * pageSize : page * pageSize"></pro-item-my-training>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngb-pagination *ngIf="filters.length" class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize" [collectionSize]="filters.length">
+</ngb-pagination>

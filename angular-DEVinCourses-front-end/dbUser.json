@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "age": 45,
+      "cpf": "00000000000000000000000000000000",
+      "email": "vitorwss@gmail.com",
+      "name": "Vitor Silva",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "age": 80,
+      "cpf": "00000000000000000000000000000000",
+      "email": "gregreg@gmail.com",
+      "name": "ggg",
+      "password": "12345678",
+      "id": 2
+    }
+  ]
+}

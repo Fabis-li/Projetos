@@ -1,0 +1,74 @@
+<div class="card rounded backgroundBlue">
+  <div class="card-body">
+    <h5 class="card-title">Cadastrar módulo</h5>
+    <div [formGroup]="formModule">
+      <div class="row">
+        <div class="col">
+          <label for="atividade" class="form-label">Título</label>
+          <input
+            formControlName="titleModule"
+            classestype="text"
+            class="form-control"
+            id="titleModule"
+            placeholder="Título do módulo"
+            required=""
+          />
+          <div class="invalid-feedback">Digite o título do módulo</div>
+        </div>
+
+        <div class="col">
+          <label
+            for="imagem"
+            class="form-label custom-file-label"
+            id="customFileLabel"
+            >Imagem do módulo</label
+          >
+          <div class="input-group mb-3">
+            <input
+              type="file"
+              class="form-control"
+              id="inputGroupFile02"
+              (change)="onChange($event)"
+            />
+          </div>
+          <div class="invalid-feedback">selecione uma imagem para o módulo</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="atividade" class="form-label">Descrição</label>
+          <input
+            formControlName="descriptionModule"
+            classestype="text"
+            class="form-control"
+            id="descriptionModule"
+            placeholder="Descrição do módulo"
+            required=""
+          />
+          <div class="invalid-feedback">Digite a descrição do módulo</div>
+        </div>
+        <div class="col">
+          <label for="atividade" class="form-label">Aula no youtube</label>
+          <input
+            formControlName="link"
+            classestype="text"
+            class="form-control"
+            id="link"
+            placeholder="Link para a atividade"
+            required=""
+          />
+          <div class="invalid-feedback">Digite o link para a atividade</div>
+        </div>
+      </div>
+
+      <div class="d-grid d-flex justify-content-end">
+        <button (click)="ResetForm()" class="btn btn-cancel m-2" type="button">
+          Cancelar
+        </button>
+        <button (click)="ShowData()" class="btn btn-add m-2" type="button">
+          Adicionar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

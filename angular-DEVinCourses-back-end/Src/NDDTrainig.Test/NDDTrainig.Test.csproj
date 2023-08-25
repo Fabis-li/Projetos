@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+   <PackageReference Include="FluentValidation" Version="11.3.0" />
+   <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+   <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.3.0" />
+   <PackageReference Include="FluentValidation.Validators.UnitTestExtension" Version="1.11.0.2" />
+   <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UserTestValidations\" />
+  </ItemGroup>
+
+   <ItemGroup>	   
+    <ProjectReference Include="..\NDDTraining.API\NDDTraining.API.csproj" /> 
+     <ProjectReference Include="..\NDDTraining.Domain\NDDTraining.Domain.csproj" /> 
+	</ItemGroup>
+
+
+</Project>

@@ -1,0 +1,169 @@
+<div class="input-container p-5">
+  <h1 class="mb-5">Login</h1>
+  <form [formGroup]="form">
+    <div class="form-group">
+      <div class="container-anchor">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control mb-2"
+          formControlName="email"
+          required
+        />
+        <div
+          *ngIf="form.controls['email'].dirty && form.controls['email'].invalid"
+          class="container-absolute"
+        >
+          <div
+            *ngIf="form.controls['email'].errors?.['required']"
+            class="alert alert-danger"
+          >
+            Email obrigatório.
+          </div>
+          <div
+            *ngIf="form.controls['email'].invalid"
+            class="alert alert-danger"
+          >
+            Email inválido.
+          </div>
+        </div>
+      </div>
+      <div class="container-anchor">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+          minlength="8"
+          required
+        />
+        <div
+          *ngIf="form.controls['password'].dirty && form.controls['password'].invalid"
+          class="container-absolute"
+        >
+          <div
+            *ngIf="form.controls['password'].errors?.['required']"
+            class="alert alert-danger"
+          >
+            Senha obrigatória.
+          </div>
+          <div
+            *ngIf="form.controls['password'].errors?.['minlength']"
+            class="alert alert-danger"
+          >
+            Mínimo 8 caracteres.
+          </div>
+          <div
+            *ngIf="form.controls['password'].errors?.['pattern']"
+            class="alert alert-danger"
+          >
+            Senha somente letras e/ou números.
+          </div>
+        </div>
+      </div>
+      <br />
+      <p class="text-center">
+        Não possui o cadastro?
+        <a [routerLink]="['/cadastro']" class="href">Cadastre-se aqui!</a>
+        <a
+          class="href"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-bs-whatever="@mdo"
+        >
+          Esqueci minha senha
+        </a>
+      </p>
+
+      <div>
+        <button
+          class="button button-send form-control"
+          (click)="submitLogin()"
+          [disabled]="!form.valid"
+          type="submit"
+        >
+          Entrar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Vertically centered scrollable modal -->
+<div class="container text-center mb-4">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form [formGroup]="userEmails">
+          <div class="text-center mt-3">
+            <h1 class="modal-title fs-3" id="exampleModalLabel">
+              Esqueci minha senha
+            </h1>
+          </div>
+          <div class="modal-body text-start">
+            <p>
+              Será enviado um token para redefinição de senha para o email
+              digitado abaixo.
+            </p>
+            <div class="mb-1 input-container container-anchor">
+              <label for="forgetEmail" class="col-form-label">Digite seu email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="forgetEmail"
+                formControlName="ResetEmail"
+                required
+              />
+              <div
+                *ngIf="userEmails.controls['ResetEmail'].dirty && userEmails.controls['ResetEmail'].invalid"
+                class="container-absolute"
+              >
+                <div
+                  *ngIf="userEmails.controls['ResetEmail'].errors?.['required']"
+                  class="alert alert-danger"
+                >
+                  Email obrigatório.
+                </div>
+                <div
+                  *ngIf="userEmails.controls['ResetEmail'].errors?.['email']"
+                  class="alert alert-danger"
+                >
+                  Email inválido.
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row text-end p-3">
+          <div class="col">
+            <button
+              type="button"
+              class="button button-cancel-modal mx-3"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              class="button button-send-modal"
+              [disabled]="!userEmails.valid"
+              (click)="submitToken()"
+              data-bs-dismiss="modal"
+            >
+              Enviar token
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

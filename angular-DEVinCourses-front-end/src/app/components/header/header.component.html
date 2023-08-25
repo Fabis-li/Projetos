@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md">
+  <div class="col-1"></div>
+  <div class="container-fluid">
+  <!-- ICONE NDD -->
+  <a class="navbar-brand" routerLink="/home" >
+    <img class="logo" src="../../../assets/Logo-NDD-Padrao-1-1024x512 1.png" alt="">
+  </a>
+  <!-- BOTAO DE MENU -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+    <!-- BOTOES NAVEGACAO -->
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav me-auto">
+      <li  class="nav-item">
+        <a class="nav-link d-inline-block" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" aria-current="page">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link d-inline-block" routerLink="/home/trainings" routerLinkActive="active" >Meus Cursos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link d-inline-block" routerLink="/home/activities" routerLinkActive="active" >Atividades</a>
+      </li>
+    </ul>
+
+   <!--Botão Perfil -->
+   <div ngbDropdown class="d-inline-block">
+      <span>{{ userActive?.name }}</span>
+      <button type="button" class="btn" id="dropdownBasic1" ngbDropdownToggle>
+        <img [src]=" profilePicture " alt="mdo" width="32" height="32" class="rounded-circle">
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem routerLink="/home/profile">Perfil</button>
+        <button ngbDropdownItem routerLink="/home/trainings" >Meus Cursos</button>
+        <button ngbDropdownItem routerLink="/home/registration" >Cadastrar Treinamento</button>
+        <button ngbDropdownItem (click)="logoff()" >Sair</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-1"></div>
+</nav>

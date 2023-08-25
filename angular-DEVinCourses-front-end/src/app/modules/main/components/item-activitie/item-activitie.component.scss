@@ -1,0 +1,13 @@
+@import '/src/styles.scss';
+
+p {
+  cursor: pointer
+}
+
+.btn-danger {
+  background-color: $vermelho;
+}
+
+.btn-success {
+  background-color: $verde;
+}

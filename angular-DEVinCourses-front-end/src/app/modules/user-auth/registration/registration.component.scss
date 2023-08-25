@@ -1,0 +1,28 @@
+@import '/src/styles.scss';
+@import '../../user-auth/user-auth.component.scss';
+
+.title {
+  color: $azul-escuro;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.button-photo {
+  background-color: $azul-escuro;
+  padding: 1px;
+  border-radius: 15%;
+  width: 100%;
+}
+
+.button-confirm {
+  font-size: 20px;
+  background-color: $verde;
+
+  margin-top: 16px !important;
+
+  &[disabled] {
+    background-color: $verde;
+  }
+}
+
+

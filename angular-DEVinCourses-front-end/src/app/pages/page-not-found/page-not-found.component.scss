@@ -1,0 +1,21 @@
+@import '/src/styles.scss';
+
+main {
+  height: 100vh;
+  width: 100vw;
+
+  padding: 5vh 5vw;
+
+  background-color: $azul-claro;
+
+  h1 {
+    padding: 2rem;
+    width: min-content;
+    white-space: nowrap;
+
+    border-radius: 15px;
+
+    background-color: $azul-escuro;
+    color: white;
+  }
+}

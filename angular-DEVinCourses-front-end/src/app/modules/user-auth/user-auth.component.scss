@@ -1,0 +1,135 @@
+@import '/src/styles.scss';
+
+@mixin displayFlex($direction, $alignContent, $justify, $alignItems) {
+  display: flex;
+  flex-direction: $direction;
+  align-content: $alignContent;
+  justify-content: $justify;
+  align-items: $alignItems;
+}
+
+main {
+  height: 100vh;
+  background-color: $azul-claro;
+  @include displayFlex(row, space-around, space-between, center);
+
+
+  .logo-container {
+    @include displayFlex(column, normal, normal, center);
+
+    max-width: 60vw;
+    min-width: 50%;
+    overflow: hidden;
+
+    img {
+      max-width: 65%;
+    }
+
+    .separator {
+      width: 468px;
+      border-top: 1px solid #000;
+    }
+
+    p {
+      font-family: 'Inter', sans-serif;
+      font-size: 29px;
+      text-align: center;
+
+      width: 418px;
+    }
+  }
+
+  .container {
+    width: 100%;
+
+    .form-container {
+      max-width: 508px;
+      max-height: 662px;
+
+      background-color: #FFF;
+
+      border-radius: 15px;
+    }
+  }
+}
+
+// ESTILOS PARA INPUTS
+// EMMET: .input-container>(label+input)
+.input-container {
+  font-family: 'Poppins', sans-serif;
+
+  label {
+    font-size: 20px;
+    font-weight: 700;
+
+    color: $azul-escuro;
+    margin-bottom: 2px;
+  }
+
+  input {
+    font-family: inherit;
+    width: 100%;
+
+    font-size: 18px;
+
+    padding: 8px 0 5px 10px;
+
+    border: 2px solid $azul-escuro;
+    border-radius: 5px;
+
+    &::placeholder {
+      font-weight: 800;
+      color: $azul-escuro;
+      opacity: 0.2;
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.button {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+
+  animation: 1s linear 30ms 1;
+
+  &:hover {
+    animation: 500ms linear 30ms 1;
+    transition: filter 500ms;
+    filter: brightness(90%);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+// Posicionamento divs flutuantes
+.container-anchor {
+  position: relative;
+}
+
+.container-absolute {
+  position: absolute;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  font-size: 0.75rem;
+
+  div {
+    padding: 8px;
+    margin: 0px 4px 8px 4px;
+
+    z-index: 100;
+  }
+}

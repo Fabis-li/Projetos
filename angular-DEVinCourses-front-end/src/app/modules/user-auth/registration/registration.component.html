@@ -1,0 +1,154 @@
+<div class="container p-5 input-container">
+  <form [formGroup]="formRegistration" (ngSubmit)="onSubmit()">
+    <div class="row mb-4 p-1">
+      <h1 class="text-center title" *ngIf="isEditingUser == false">Cadastro</h1>
+      <h1 class="text-center title" *ngIf="isEditingUser">Editar</h1>
+    </div>
+    <div class="row">
+      <div class="col text-start p-0 container-anchor">
+        <label for="name">Nome Completo</label>
+        <br />
+        <input
+          formControlName="nameInput"
+          minlenght="3"
+          required="true"
+          type="text"
+          class="form-control mb-2"
+          id="name"
+          placeholder="Seu nome"
+        />
+        <div *ngIf="!(formRegistration.controls['nameInput'].pristine || formRegistration.controls['nameInput'].valid)" class="container-absolute">
+          <div *ngIf="formRegistration.controls['nameInput'].errors?.['required']" class="alert alert-danger">
+            O nome deve ser preenchido.
+          </div>
+          <div *ngIf="formRegistration.controls['nameInput'].invalid" class="alert alert-danger">
+            O nome deve conter mínimo três letras.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-start p-0 container-anchor">
+        <label for="email">Email</label>
+        <input
+          formControlName="emailInput"
+          required="true"
+          type="email"
+          class="form-control mb-2"
+          id="email"
+          placeholder="Seu email"
+        />
+        <div *ngIf="!(formRegistration.controls['emailInput'].pristine || formRegistration.controls['emailInput'].valid)" class="container-absolute">
+          <div *ngIf="formRegistration.controls['emailInput'].errors?.['required']" class="alert alert-danger">
+            O email deve ser preenchido.
+          </div>
+          <div *ngIf="formRegistration.controls['emailInput'].invalid" class="alert alert-danger">
+            O email está no formato inválido.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-3">
+      <div class="col-sm text-start p-0 container-anchor">
+        <label for="age">Idade</label>
+        <input
+          formControlName="ageInput"
+          required="true"
+          type="number"
+          class="form-control mb-2"
+          id="age"
+          placeholder="Sua idade"
+        />
+        <div *ngIf="!(formRegistration.controls['ageInput'].pristine || formRegistration.controls['ageInput'].valid)" class="container-absolute">
+          <div *ngIf="formRegistration.controls['ageInput'].invalid" class="alert alert-danger">
+            A idade deve ser entre os numero 18 e 110.
+          </div>
+          <div *ngIf="formRegistration.controls['ageInput'].errors?.['required']" class="alert alert-danger">
+            A idade deve ser preenchida.
+          </div>
+        </div>
+      </div>
+      <div class="col-sm text-start p-0 container-anchor">
+        <label for="cpf">CPF</label>
+        <br />
+        <input
+          formControlName="cpfInput"
+          required="true"
+          type="text"
+          class="form-control mb-2"
+          id="cpf"
+          placeholder="Seu CPF"
+        />
+        <div *ngIf="!(formRegistration.controls['cpfInput'].pristine || formRegistration.controls['cpfInput'].valid)" class="container-absolute">
+          <div *ngIf="formRegistration.controls['cpfInput'].invalid" class="alert alert-danger">
+            O CPF esta no formato inválido.
+          </div>
+          <div *ngIf="formRegistration.controls['cpfInput'].errors?.['required']" class="alert alert-danger">
+            O CPF deve ser preenchido.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-3">
+      <div class="col-sm p-0 container-anchor">
+        <label for="passwordInput">Senha</label>
+        <br />
+        <input
+          formControlName="passwordInput"
+          minlength="8"
+          required="true"
+          type="password"
+          class="form-control mb-3"
+          id="passwordInput"
+          placeholder="Sua senha"
+        />
+        <div *ngIf="!(formRegistration.controls['passwordInput'].pristine || formRegistration.controls['passwordInput'].valid)" class="container-absolute">
+          <div *ngIf="formRegistration.controls['passwordInput'].errors?.['minlength']" class="alert alert-danger">
+            A senha deve conter no mínimo 8 caracteres.
+          </div>
+          <div *ngIf="formRegistration.controls['passwordInput'].errors?.['checkChars']" class="alert alert-danger">
+            A senha deve conter somente letras e números.
+          </div>
+          <div *ngIf="formRegistration.controls['passwordInput'].errors?.['required']" class="alert alert-danger">
+            A senha deve ser preenchida.
+          </div>
+        </div>
+      </div>
+      <div class="col-sm p-0 container-anchor">
+        <label for="confirmInput">Confirmar senha</label>
+        <br />
+        <input
+          formControlName="confirmInput"
+          minlenght="8"
+          required="true"
+          type="password"
+          class="form-control mb-3"
+          id="confirmInput"
+          placeholder="Confirme a senha"
+        />
+        <div *ngIf="formRegistration.controls['confirmInput'].invalid" class="container-absolute">
+          <div *ngIf="formRegistration.controls['confirmInput'].errors?.['matching']" class="alert alert-danger">
+            As senhas devem ser iguais.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm p-0 d-flex justify-content-center button-photo">
+      <input class="form-control " accept="image/PNG, image/JPG, image/JPEG" type="file" (change)="onChange($event)" />
+    </div>
+
+
+    <div class="row">
+      <p class="text-center mt-3" *ngIf="isEditingUser == false">
+        Já possui cadastro ?
+        <a [routerLink]="['/login']" class="href">Entre aqui !</a>
+      </p>
+      <br />
+      <button [disabled]="formRegistration.invalid" type="submit" class="button button-confirm form-control">Confirmar</button>
+    </div>
+  </form>
+</div>

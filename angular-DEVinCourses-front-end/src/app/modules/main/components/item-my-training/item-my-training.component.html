@@ -1,0 +1,17 @@
+<div class="card shadow cardTraining">
+    <div (click)="selectTraining(item)">
+        <img src="{{ item.url }}" class="card-img-top imgCard" alt="...">
+        <div class="card-body padding">
+          <h6 class="card-title ">{{ item.title }}</h6>
+          <div ><img id='imgFinalizado' src="https://img.icons8.com/color/48/000000/approval--v1.png"/></div>
+          <p class="card-text descricaoCurso overflow-hidden padding">{{ item.description }}</p>
+        </div>
+        <div class="text-center">
+            <p class="cargaHoraria ">Professor: {{ item.teacher }}</p>  
+            <p class="cargaHoraria ">Carga Horária: {{ formatarDuracao(item.duration) }} horas</p>  
+        </div>
+    </div>
+    <div class="text-center mb-3">
+        <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeTraining()">Remover</button>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+$azul-claro: #dbedff;
+$azul-escuro: #0069d1;
+$verde: #04932c;
+$vermelho: #ba4040;
+$branco: white;
+
+$NDD-roxo: #5600fe;
+$NDD-rosa: #eb008b;
+$NDD-ciano: #1ee9cc;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";

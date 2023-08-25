@@ -1,0 +1,64 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Criar Atividade</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    ></button>
+  </div>
+  <div [formGroup]="formActivitie">
+    <div class="modal-body">
+      <label for="treinamento" class="form-label">Título da Atividade</label>
+      <input
+        formControlName="title"
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Digite o título de sua atividade"
+        required=""
+      />
+      <label for="treinamento" class="form-label mt-3">Descrição</label>
+      <textarea
+        formControlName="description"
+        type="text"
+        class="form-control"
+        id="description"
+        placeholder="Digite a descrição de sua atividade"
+        required=""
+        cols="30" rows="10"
+      ></textarea>
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-success" (click)="CreateActivitie()">
+        Criar
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<div class="container mt-4">
+  <button class="btn btn-success mb-3" (click)="open(content)">
+    Criar Atividade
+  </button>
+  <ul class="list-group">
+    <pro-item-activitie
+      [item]="activitie"
+      *ngFor="
+        let activitie of activities
+          | slice: (page - 1) * pageSize:page * pageSize
+      "
+    ></pro-item-activitie>
+  </ul>
+
+  <ngb-pagination
+    *ngIf="activities.length"
+    class="d-flex justify-content-center mt-2"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="activities.length"
+  >
+  </ngb-pagination>
+</div>
