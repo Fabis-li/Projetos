@@ -24,7 +24,7 @@ clone o repositório - digite o seguinte comando
 $ git clone -n https://github.com/Fabis-li/Projetos.git
 ```
 navegue ate o diretorio baixado "Projetos"
-
+dentro do diretorio digite o comando abaixo:
 ```git
 clone o repositório - digite o seguinte comando
 $ git checkout HEAD nodejs-sistema-dindin
