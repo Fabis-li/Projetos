@@ -23,13 +23,13 @@ Essas instruções permitirão que você obtenha uma cópia do projeto.
 clone o repositório - digite o seguinte comando
 $ git clone -n https://github.com/Fabis-li/Projetos.git
 ```
-navegue ate o diretorio baixado "Projetos"
+navegue ate o diretorio baixado "Projetos",
 dentro do diretorio digite o comando abaixo:
 ```git
 clone o repositório - digite o seguinte comando
 $ git checkout HEAD nodejs-sistema-dindin
 ```
-o confira se o projeto esta dentro do diretorio "Projetos"
+confira se o projeto esta dentro do diretorio "Projetos"
 
 ## 🛠 Tecnologias Usadas
 - NodeJs 
