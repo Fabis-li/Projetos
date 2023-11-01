@@ -31,6 +31,11 @@ $ git checkout HEAD nodejs-sistema-dindin
 ```
 confira se o projeto esta dentro do diretorio "Projetos"
 
+Para instalar as dependencias use o comando abaixo:
+```git
+npm install
+```
+
 ## 🛠 Tecnologias Usadas
 - NodeJs 
 - Javascript
@@ -43,7 +48,6 @@ confira se o projeto esta dentro do diretorio "Projetos"
 - jsonwebtoken
 - nodemon
 
-## **Banco de dados**
 
 
 
