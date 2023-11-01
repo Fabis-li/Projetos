@@ -48,7 +48,7 @@ npm install
 - jsonwebtoken
 - nodemon
 
-
+Para usar a API, é necessário autenticar-se. Você deve obter um token JWT válido através do endpoint de login antes de acessar outros recursos. O token JWT deve ser incluído no cabeçalho de autorização de todas as solicitações subsequentes.
 
 
 
